@@ -27,7 +27,7 @@ export default function Home() {
         }}
       />
 
-      <ScrollView showsHorizontalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <View
           style={{
             flex: 1,
