@@ -1,3 +1,4 @@
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import React, { useState } from 'react';
 import {
   View,
@@ -12,6 +13,7 @@ import styles from './welcome.style';
 import { useRouter } from 'expo-router';
 import { SIZES, icons } from '@/constants';
 
+const Drawer = createDrawerNavigator();
 const Welcome = () => {
   const jobTypes = [
     'Body Building',
@@ -28,7 +30,6 @@ const Welcome = () => {
         <Text style={styles.userName}>Hello Andy</Text>
         <Text style={styles.welcomeMessage}>Find your perfect course</Text>
       </View>
-
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <TextInput

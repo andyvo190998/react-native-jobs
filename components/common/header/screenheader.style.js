@@ -10,11 +10,14 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.small / 1.25,
     justifyContent: "center",
     alignItems: "center",
+
+    paddingHorizontal: '32px'
   },
   btnImg: (dimension) => ({
     width: dimension,
     height: dimension,
     borderRadius: SIZES.small / 1.25,
+    padding: '16px'
   }),
 });
 

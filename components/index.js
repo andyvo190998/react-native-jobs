@@ -4,6 +4,11 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 import Welcome from "./home/welcome/Welcome";
 import Nearbyjobs from "./home/nearby/Nearbyjobs";
 import Popularjobs from "./home/popular/Popularjobs";
+import DrawerContent from './drawer-content/DrawerContent.jsx'
+import StartingPage from './login/StartingPage.jsx'
+import LoginScreen from './login/LoginPage.jsx'
+import RegisterPage from './login/RegisterPage.jsx'
+
 
 // job details screen
 import Company from "./jobdetails/company/Company";
@@ -25,5 +30,9 @@ export {
   JobAbout,
   JobFooter,
   Specifics,
-  NearbyJobCard
+  NearbyJobCard,
+  DrawerContent,
+  StartingPage,
+  LoginScreen,
+  RegisterPage
 };

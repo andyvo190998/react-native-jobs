@@ -1,14 +1,13 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-
-import styles from './nearbyjobs.style'
+import React from 'react';
+import { View, Text } from 'react-native';
 
 const Nearbyjobs = () => {
   return (
     <View>
-      <Text>Nearbyjobs</Text>
+      <Text className="text-red-400">Nearbyjobs</Text>
+      <Text className="text-red-400">Nearbyjobs</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Nearbyjobs
+export default Nearbyjobs;
