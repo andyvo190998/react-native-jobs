@@ -112,7 +112,7 @@ import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 // import { themeColors } from '../theme';
 import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = (props) => {
+const LoginScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1, backgroundColor: '#877dfa' }}>

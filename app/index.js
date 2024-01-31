@@ -3,8 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { COLORS, icons, images, SIZES } from '../constants';
 import {
-  Nearbyjobs,
-  Popularjobs,
+  TrainingList,
   ScreenHeaderBtn,
   Welcome,
   DrawerContent,
@@ -16,9 +15,10 @@ import {
 } from '../components';
 import { DrawerActions, NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useState } from 'react';
 
-const StackNav = () => {
-  const navigation = useNavigation()
+const StackNav = ({ navigation, route }) => {
+  // const navigation = useNavigation()
   const handlePress = () => {
     navigation.dispatch(DrawerActions.openDrawer())
   }
@@ -47,7 +47,7 @@ const StackNav = () => {
         >
 
           <Welcome />
-          <Nearbyjobs />
+          <TrainingList navigation={navigation} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -57,6 +57,7 @@ const StackNav = () => {
 export default function Home() {
   const router = useRouter();
   const Drawer = createDrawerNavigator();
+  const [trainingLevel, setTrainingLevel] = useState('')
 
   return (
     // <StackNav />
@@ -67,7 +68,7 @@ export default function Home() {
         screenOptions={{
           headerShown: false
         }}>
-        <Drawer.Screen name="Home" component={StackNav} />
+        <Drawer.Screen name="Home" component={StackNav} initialParams={{ itemId: 42 }} />
         <Drawer.Screen name="StartingPage" component={StartingPage} />
         <Drawer.Screen name="Login" component={LoginScreen} />
         <Drawer.Screen name="Register" component={RegisterPage} />

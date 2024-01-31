@@ -2,8 +2,7 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 
 // home screen
 import Welcome from "./home/welcome/Welcome";
-import Nearbyjobs from "./home/nearby/Nearbyjobs";
-import Popularjobs from "./home/popular/Popularjobs";
+import TrainingList from "./home/nearby/TrainingList";
 import DrawerContent from './drawer-content/DrawerContent.jsx'
 import StartingPage from './login/StartingPage.jsx'
 import LoginScreen from './login/LoginPage.jsx'
@@ -24,8 +23,7 @@ import NearbyJobCard from "./common/cards/nearby/NearbyJobCard";
 export {
   ScreenHeaderBtn,
   Welcome,
-  Nearbyjobs,
-  Popularjobs,
+  TrainingList,
   Company,
   JobTabs,
   JobAbout,
