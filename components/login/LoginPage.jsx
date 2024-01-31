@@ -99,40 +99,39 @@
 
 // https://github.com/syednomishah/Login-SignUp-UI-React-Native
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  StyleSheet,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 // import { themeColors } from '../theme';
 import { useNavigation } from '@react-navigation/native';
 
-export default function LoginScreen() {
+const LoginScreen = (props) => {
   const navigation = useNavigation();
-
   return (
     <View style={{ flex: 1, backgroundColor: '#877dfa' }}>
       <SafeAreaView style={{ flex: 1 }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            position: 'absolute',
-            zIndex: '1',
-          }}
-        >
+        <View style={styles.safeViewContainer}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            style={{
-              backgroundColor: 'yellow',
-              padding: 10,
-              borderTopRightRadius: 50,
-              borderBottomLeftRadius: 50,
-              marginLeft: 4,
-            }}
+            style={styles.backBtn}
           >
             <ArrowLeftIcon size={20} color="black" />
           </TouchableOpacity>
         </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            position: 'absolute',
+          }}
+        >
           <Image
             source={{
               uri: 'https://images.pexels.com/photos/8401876/pexels-photo-8401876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -142,30 +141,15 @@ export default function LoginScreen() {
         </View>
       </SafeAreaView>
 
-      <View
-        style={{
-          borderTopLeftRadius: 50,
-          borderTopRightRadius: 50,
-          flex: 1,
-          backgroundColor: 'white',
-          paddingHorizontal: 25,
-          paddingTop: 30,
-        }}
-      >
+      <View style={styles.mainContainer}>
         <View style={{ marginBottom: 2 }}>
           <Text style={{ color: 'gray', marginLeft: 4, marginBottom: 5 }}>
             Email Address
           </Text>
           <TextInput
-            style={{
-              padding: 10,
-              backgroundColor: '#f3f4f6',
-              color: '#374151',
-              borderRadius: 20,
-              marginBottom: 3,
-            }}
+            style={styles.inputField}
             placeholder="email"
-            value="john@gmail.com"
+            value="andy@gmail.com"
           />
         </View>
         <View style={{ marginBottom: 2 }}>
@@ -173,12 +157,7 @@ export default function LoginScreen() {
             Password
           </Text>
           <TextInput
-            style={{
-              padding: 10,
-              backgroundColor: '#f3f4f6',
-              color: '#374151',
-              borderRadius: 20,
-            }}
+            style={styles.inputField}
             secureTextEntry
             placeholder="password"
             value="test12345"
@@ -193,91 +172,42 @@ export default function LoginScreen() {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('Home')}
-          style={{
-            backgroundColor: '#eab308',
-            borderRadius: 20,
-            paddingVertical: 12,
-          }}
+          style={styles.loginBtn}
         >
           <Text
-            style={{
-              fontSize: 15,
-              fontWeight: 'bold',
-              textAlign: 'center',
-              color: 'black',
-            }}
+            className="font-xl font-bold text-center text-gray-700"
+            // style={styles.loginText}
           >
             Login
           </Text>
         </TouchableOpacity>
 
-        <Text
-          style={{
-            fontSize: 20,
-            color: 'gray',
-            fontWeight: '600',
-            textAlign: 'center',
-            paddingTop: 5,
-            marginVertical: 10,
-          }}
-        >
+        <Text className="text-xl text-gray-700 font-bold text-center py-5">
           Or
         </Text>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            marginVertical: 7,
-            display: 'flex',
-            gap: '15px',
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              padding: 10,
-              backgroundColor: '#f3f4f6',
-              borderRadius: 20,
-            }}
-          >
+        <View style={styles.logoContainer}>
+          <TouchableOpacity style={styles.logoBtn}>
             <Image
               source={require('../../assets/icons/google.png')}
-              style={{ width: 35, height: 35 }}
+              style={styles.logoImg}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              padding: 10,
-              backgroundColor: '#f3f4f6',
-              borderRadius: 20,
-            }}
-          >
+          <TouchableOpacity style={styles.logoBtn}>
             <Image
               source={require('../../assets/icons/apple.png')}
-              style={{ width: 35, height: 35 }}
+              style={styles.logoImg}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              padding: 10,
-              backgroundColor: '#f3f4f6',
-              borderRadius: 20,
-            }}
-          >
+          <TouchableOpacity style={styles.logoBtn}>
             <Image
               source={require('../../assets/icons/facebook.png')}
-              style={{ width: 35, height: 35 }}
+              style={styles.logoImg}
             />
           </TouchableOpacity>
         </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            marginTop: 7,
-          }}
-        >
+        <View style={styles.info}>
           <Text style={{ color: 'gray', fontWeight: '600' }}>
             Don't have an account?
           </Text>
@@ -291,4 +221,82 @@ export default function LoginScreen() {
       </View>
     </View>
   );
-}
+};
+const styles = StyleSheet.create({
+  logoImg: { width: 35, height: 35 },
+  safeViewContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    position: 'absolute',
+    zIndex: 3,
+  },
+  backBtn: {
+    backgroundColor: '#fbd38d',
+    padding: 8,
+    borderTopRightRadius: 8,
+    borderBottomLeftRadius: 8,
+    marginLeft: 16,
+    zIndex: 1,
+    // backgroundColor: 'yellow',
+    // padding: 10,
+    // borderTopRightRadius: 50,
+    // borderBottomLeftRadius: 50,
+    // marginLeft: 4,
+    position: 'absolute',
+    top: 35,
+    left: 0,
+  },
+  mainContainer: {
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    flex: 1,
+    backgroundColor: 'white',
+    paddingHorizontal: 25,
+    paddingTop: 30,
+  },
+  inputField: {
+    padding: 10,
+    backgroundColor: '#f3f4f6',
+    color: '#374151',
+    borderRadius: 16,
+    marginBottom: 3,
+  },
+  loginBtn: {
+    backgroundColor: '#facc15',
+    borderRadius: 12,
+    paddingVertical: 12,
+  },
+  loginText: {
+    fontSize: 15,
+    fontWeight: '700',
+    textAlign: 'center',
+    color: 'black',
+  },
+  orText: {
+    fontSize: 20,
+    color: 'gray',
+    fontWeight: '600',
+    textAlign: 'center',
+    paddingTop: 5,
+    marginVertical: 10,
+  },
+  logoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: 7,
+    display: 'flex',
+    gap: 15,
+  },
+  logoBtn: {
+    padding: 10,
+    backgroundColor: '#f3f4f6',
+    borderRadius: 20,
+  },
+  info: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 7,
+  },
+});
+
+export default LoginScreen;

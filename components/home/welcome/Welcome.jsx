@@ -12,18 +12,27 @@ import {
 import styles from './welcome.style';
 import { useRouter } from 'expo-router';
 import { SIZES, icons } from '@/constants';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Drawer = createDrawerNavigator();
 const Welcome = () => {
-  const jobTypes = [
-    'Body Building',
-    'Cardio',
-    'Weigh loss',
-    'Calisthenics',
-    'Power Lifting',
-  ];
+  const jobTypes = ['Easy', 'Medium', 'Hard', 'Extreme', 'Expert'];
   const router = useRouter();
   const [activeJobType, setActiveJobType] = useState('Cardio');
+
+  const selectIcon = (icon) => {
+    if (icon === 'Easy') {
+      return 'emoticon-excited-outline';
+    } else if (icon === 'Medium') {
+      return 'emoticon-wink-outline';
+    } else if (icon === 'Hard') {
+      return 'emoticon-cool-outline';
+    } else if (icon === 'Extreme') {
+      return 'emoticon-angry-outline';
+    } else {
+      return 'emoticon-devil-outline';
+    }
+  };
   return (
     <View>
       <View style={styles.container}>
@@ -60,11 +69,17 @@ const Welcome = () => {
               <TouchableOpacity
                 onPress={() => {
                   setActiveJobType(item);
-                  // router.push(`/search/${item}`);
+                  router.push(`/user/${item.toLowerCase()}`);
                 }}
                 style={styles.tab(activeJobType, item)}
               >
-                <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
+                <Icon name={selectIcon(item)} size={30} color={'#ff9a00'} />
+                <Text
+                  className="ml-1"
+                  style={styles.tabText(activeJobType, item)}
+                >
+                  {item}
+                </Text>
               </TouchableOpacity>
             );
           }}

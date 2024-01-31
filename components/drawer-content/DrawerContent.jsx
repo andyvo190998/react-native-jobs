@@ -12,6 +12,7 @@ import {
   Switch,
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon1 from 'react-native-vector-icons/Ionicons';
 
 const DrawerContent = (props) => {
   return (
@@ -25,23 +26,18 @@ const DrawerContent = (props) => {
                 size={50}
               />
               <View style={{ marginLeft: 15, flexDirection: 'column' }}>
-                <Title style={styles.title}>John Doe</Title>
-                <Caption style={styles.caption}>@j_doe</Caption>
+                <Title style={styles.title}>Andy Vo</Title>
+                <Caption style={styles.caption}>@a_vo</Caption>
               </View>
             </View>
 
             <View style={styles.row}>
               <View style={styles.section}>
+                <Icon name="fire" size={30} color={'#ff9a00'} />
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   80
                 </Paragraph>
-                <Caption style={styles.caption}>Following</Caption>
-              </View>
-              <View style={styles.section}>
-                <Paragraph style={[styles.paragraph, styles.caption]}>
-                  100
-                </Paragraph>
-                <Caption style={styles.caption}>Followers</Caption>
+                <Caption style={styles.caption}>day streak!</Caption>
               </View>
             </View>
           </View>
@@ -62,6 +58,7 @@ const DrawerContent = (props) => {
               )}
               label="Profile"
               onPress={() => {
+                console.log('click');
                 props.navigation.navigate('Profile');
               }}
             />
@@ -75,15 +72,15 @@ const DrawerContent = (props) => {
               }}
             />
 
-            {/* <DrawerItem
+            <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="settings-outline" color={color} size={size} />
+                <Icon1 name="settings-outline" color={color} size={size} />
               )}
               label="Settings"
               onPress={() => {
                 props.navigation.navigate('SettingsScreen');
               }}
-            /> */}
+            />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-check-outline" color={color} size={size} />
@@ -113,7 +110,7 @@ const DrawerContent = (props) => {
           )}
           label="Sign Out"
           onPress={() => {
-            props.navigation.navigate('StartingPage');
+            props.navigation.navigate('Login');
           }}
         />
       </Drawer.Section>
@@ -143,11 +140,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   section: {
     flexDirection: 'row',
     alignItems: 'center',
     marginRight: 15,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   paragraph: {
     fontWeight: 'bold',

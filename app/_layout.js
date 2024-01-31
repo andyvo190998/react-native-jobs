@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
 // import * from SplashScreen from 'expo-splash-screen'
 
-SplashScreen.preventAutoHideAsync()
+// SplashScreen.preventAutoHideAsync()
 
 export const unstable_settings = {
     // Ensure any route can link back to `/`
@@ -29,8 +29,8 @@ const Layout = () => {
             onLayout={onLayoutRootView}
             screenOptions={{
                 headerShown: false
-            }} /
-        >
+            }}
+        />
 
 
     )

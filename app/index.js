@@ -10,23 +10,21 @@ import {
   DrawerContent,
   StartingPage,
   LoginScreen,
-  RegisterPage
+  RegisterPage,
+  Profile,
+  TrainingScreen
 } from '../components';
 import { DrawerActions, NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const StackNav = () => {
   const navigation = useNavigation()
-  // navigation.setOptions({ headerShown: true });
   const handlePress = () => {
     navigation.dispatch(DrawerActions.openDrawer())
   }
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-
-
       <Stack.Screen
-
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
@@ -61,7 +59,7 @@ export default function Home() {
   const Drawer = createDrawerNavigator();
 
   return (
-
+    // <StackNav />
     <NavigationContainer independent={true}>
       <Drawer.Navigator
         initialRouteName='StartingPage'
@@ -73,6 +71,8 @@ export default function Home() {
         <Drawer.Screen name="StartingPage" component={StartingPage} />
         <Drawer.Screen name="Login" component={LoginScreen} />
         <Drawer.Screen name="Register" component={RegisterPage} />
+        <Drawer.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
+        <Drawer.Screen name="Training" component={TrainingScreen} options={{ headerShown: true }} />
       </Drawer.Navigator>
     </NavigationContainer>
 

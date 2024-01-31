@@ -8,7 +8,8 @@ import DrawerContent from './drawer-content/DrawerContent.jsx'
 import StartingPage from './login/StartingPage.jsx'
 import LoginScreen from './login/LoginPage.jsx'
 import RegisterPage from './login/RegisterPage.jsx'
-
+import Profile from './profile/Profile.jsx'
+import TrainingScreen from './training/TrainingScreen.jsx'
 
 // job details screen
 import Company from "./jobdetails/company/Company";
@@ -34,5 +35,7 @@ export {
   DrawerContent,
   StartingPage,
   LoginScreen,
-  RegisterPage
+  RegisterPage,
+  Profile,
+  TrainingScreen
 };
