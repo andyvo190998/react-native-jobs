@@ -1,6 +1,7 @@
 import { Stack, useNavigation, useRouter } from 'expo-router';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { LogBox } from 'react-native';
+
 import { COLORS, icons, images, SIZES } from '../constants';
 import {
   TrainingList,
@@ -16,6 +17,8 @@ import {
 import { DrawerActions, NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useState } from 'react';
+LogBox.ignoreLogs(['new NativeEventEmitter']);
+LogBox.ignoreLogs(["VirtualizedLists should never be nested"])
 
 const StackNav = ({ navigation, route }) => {
   // const navigation = useNavigation()

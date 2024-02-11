@@ -37,7 +37,7 @@ const DrawerContent = (props) => {
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   80
                 </Paragraph>
-                <Caption style={styles.caption}>day streak!</Caption>
+                <Caption style={styles.caption}>days streak!</Caption>
               </View>
             </View>
           </View>
